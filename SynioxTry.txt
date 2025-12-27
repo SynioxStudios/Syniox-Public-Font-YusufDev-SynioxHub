@@ -1,4 +1,4 @@
--- Elerium V2 - Fancy Text Edition
+-- Elerium V2 - Mathematical Bold Italic (𝒇𝒂𝒏𝒄𝒚) Edition
 local ui_options = {
 	main_color = Color3.fromRGB(41, 74, 122),
 	min_size = Vector2.new(400, 300),
@@ -6,19 +6,22 @@ local ui_options = {
 	can_resize = true,
 }
 
--- Unicode Fancy Text Dönüştürücü (Bold Italic Serif)
-local function toFancyText(str)
+-- [ FANCY TEXT MOTORU ]
+-- Bu fonksiyon normal metni Mathematical Bold Italic karakterlerine çevirir.
+local function toFancy(str)
 	if type(str) ~= "string" then return str end
-	local charms = {
-		["a"] = "𝒂", ["b"] = "𝒃", ["c"] = "𝒄", ["d"] = "𝒅", ["e"] = "𝒆", ["f"] = "𝒇", ["g"] = "𝒈", ["h"] = "𝒉", ["i"] = "𝒊", ["j"] = "𝒋", ["k"] = "𝒌", ["l"] = "𝒍", ["m"] = "𝒎", ["n"] = "𝒏", ["o"] = "𝒐", ["p"] = "𝒑", ["q"] = "𝒒", ["r"] = "𝒓", ["s"] = "𝒔", ["t"] = "𝒕", ["u"] = "𝒖", ["v"] = "𝒗", ["w"] = "𝒘", ["x"] = "𝒙", ["y"] = "𝒚", ["z"] = "𝒛",
-		["A"] = "𝑨", ["B"] = "𝑩", ["C"] = "𝑪", ["D"] = "𝑫", ["E"] = "𝑬", ["F"] = "𝑭", ["G"] = "𝑮", ["H"] = "𝑯", ["I"] = "𝑰", ["J"] = "𝑱", ["K"] = "𝑲", ["L"] = "𝑳", ["M"] = "𝑴", ["N"] = "𝑵", ["O"] = "𝑶", ["P"] = "𝑷", ["Q"] = "𝑒", ["R"] = "𝑹", ["S"] = "𝑺", ["T"] = "𝑻", ["U"] = "𝑼", ["V"] = "𝑽", ["W"] = "𝑾", ["X"] = "𝑿", ["Y"] = "𝒀", ["Z"] = "𝒁"
+	local normal = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+	local fancy = {
+		["a"]="𝒂",["b"]="𝒃",["c"]="𝒄",["d"]="𝒅",["e"]="𝒆",["f"]="𝒇",["g"]="𝒈",["h"]="𝒉",["i"]="𝒊",["j"]="𝒋",["k"]="𝒌",["l"]="𝒍",["m"]="𝒎",["n"]="𝒏",["o"]="𝒐",["p"]="𝒑",["q"]="𝒒",["r"]="𝒓",["s"]="𝒔",["t"]="𝒕",["u"]="𝒖",["v"]="𝒗",["w"]="𝒘",["x"]="𝒙",["y"]="𝒚",["z"]="𝒛",
+		["A"]="𝑨",["B"]="𝑩",["C"]="𝑪",["D"]="𝑫",["E"]="𝑬",["F"]="𝑭",["G"]="𝑮",["H"]="𝑯",["I"]="𝑰",["J"]="𝑱",["K"]="𝑲",["L"]="𝑳",["M"]="𝑴",["N"]="𝑵",["O"]="𝑶",["P"]="𝑷",["Q"]="𝑸",["R"]="𝑹",["S"]="𝑺",["T"]="𝑻",["U"]="𝑼",["V"]="𝑽",["W"]="𝑾",["X"]="𝑿",["Y"]="𝒀",["Z"]="𝒁",
+		["0"]="𝟎",["1"]="𝟏",["2"]="𝟐",["3"]="𝟑",["4"]="𝟒",["5"]="𝟓",["6"]="𝟔",["7"]="𝟕",["8"]="𝟖",["9"]="𝟗"
 	}
-	local newStr = ""
+	local rs = ""
 	for i = 1, #str do
-		local char = str:sub(i, i)
-		newStr = newStr .. (charms[char] or char)
+		local c = str:sub(i,i)
+		rs = rs .. (fancy[c] or c)
 	end
-	return newStr
+	return rs
 end
 
 do
@@ -42,161 +45,4 @@ local TabButtons = Instance.new("Frame")
 local UIListLayout = Instance.new("UIListLayout")
 local Frame = Instance.new("Frame")
 local Tab = Instance.new("Frame")
-local UIListLayout_2 = Instance.new("UIListLayout")
-local TextBox = Instance.new("TextBox")
-local TextBox_Roundify_4px = Instance.new("ImageLabel")
-local Slider = Instance.new("ImageLabel")
-local Title_2 = Instance.new("TextLabel")
-local Indicator = Instance.new("ImageLabel")
-local Value = Instance.new("TextLabel")
-local TextLabel = Instance.new("TextLabel")
-local TextLabel_2 = Instance.new("TextLabel")
-local Circle = Instance.new("ImageLabel")
-local UIListLayout_3 = Instance.new("UIListLayout")
-local Dropdown = Instance.new("TextButton")
-local Indicator_2 = Instance.new("ImageLabel")
-local Box = Instance.new("ImageButton")
-local Objects = Instance.new("ScrollingFrame")
-local UIListLayout_4 = Instance.new("UIListLayout")
-local TextButton_Roundify_4px = Instance.new("ImageLabel")
-local TabButton = Instance.new("TextButton")
-local TextButton_Roundify_4px_2 = Instance.new("ImageLabel")
-local Folder = Instance.new("ImageLabel")
-local Button = Instance.new("TextButton")
-local TextButton_Roundify_4px_3 = Instance.new("ImageLabel")
-local Toggle_2 = Instance.new("ImageLabel")
-local Objects_2 = Instance.new("Frame")
-local UIListLayout_5 = Instance.new("UIListLayout")
-local HorizontalAlignment = Instance.new("Frame")
-local UIListLayout_6 = Instance.new("UIListLayout")
-local Console = Instance.new("ImageLabel")
-local ScrollingFrame = Instance.new("ScrollingFrame")
-local Source = Instance.new("TextBox")
-local Comments = Instance.new("TextLabel")
-local Globals = Instance.new("TextLabel")
-local Keywords = Instance.new("TextLabel")
-local RemoteHighlight = Instance.new("TextLabel")
-local Strings = Instance.new("TextLabel")
-local Tokens = Instance.new("TextLabel")
-local Numbers = Instance.new("TextLabel")
-local Info = Instance.new("TextLabel")
-local Lines = Instance.new("TextLabel")
-local ColorPicker = Instance.new("ImageLabel")
-local Palette = Instance.new("ImageLabel")
-local Indicator_3 = Instance.new("ImageLabel")
-local Sample = Instance.new("ImageLabel")
-local Saturation = Instance.new("ImageLabel")
-local Indicator_4 = Instance.new("Frame")
-local Switch = Instance.new("TextButton")
-local TextButton_Roundify_4px_4 = Instance.new("ImageLabel")
-local Title_3 = Instance.new("TextLabel")
-local Button_2 = Instance.new("TextButton")
-local TextButton_Roundify_4px_5 = Instance.new("ImageLabel")
-local DropdownButton = Instance.new("TextButton")
-local Keybind = Instance.new("ImageLabel")
-local Title_4 = Instance.new("TextLabel")
-local Input = Instance.new("TextButton")
-local Input_Roundify_4px = Instance.new("ImageLabel")
-local Windows = Instance.new("Frame")
-
-imgui.Name = "imgui"
-imgui.Parent = game:GetService("CoreGui") or gethui()
-
-Prefabs.Name = "Prefabs"
-Prefabs.Parent = imgui
-Prefabs.BackgroundColor3 = Color3.new(1, 1, 1)
-Prefabs.Size = UDim2.new(0, 100, 0, 100)
-Prefabs.Visible = false
-
-Label.Name = "Label"
-Label.Parent = Prefabs
-Label.BackgroundColor3 = Color3.new(1, 1, 1)
-Label.BackgroundTransparency = 1
-Label.Size = UDim2.new(0, 200, 0, 20)
-Label.Font = Enum.Font.Arial -- Unicode uyumu için Arial yapıldı
-Label.Text = toFancyText("Hello, world 123")
-Label.TextColor3 = Color3.new(1, 1, 1)
-Label.TextSize = 14
-Label.TextXAlignment = Enum.TextXAlignment.Left
-
-Window.Name = "Window"
-Window.Parent = Prefabs
-Window.Active = true
-Window.BackgroundColor3 = Color3.new(1, 1, 1)
-Window.BackgroundTransparency = 1
-Window.ClipsDescendants = true
-Window.Position = UDim2.new(0, 20, 0, 20)
-Window.Selectable = true
-Window.Size = UDim2.new(0, 200, 0, 200)
-Window.Image = "rbxassetid://2851926732"
-Window.ImageColor3 = Color3.new(0.0823529, 0.0862745, 0.0901961)
-Window.ScaleType = Enum.ScaleType.Slice
-Window.SliceCenter = Rect.new(12, 12, 12, 12)
-
-Title.Name = "Title"
-Title.Parent = Window
-Title.BackgroundColor3 = Color3.new(1, 1, 1)
-Title.BackgroundTransparency = 1
-Title.Position = UDim2.new(0, 30, 0, 3)
-Title.Size = UDim2.new(0, 200, 0, 20)
-Title.Font = Enum.Font.Arial
-Title.Text = toFancyText("Gamer Time")
-Title.TextColor3 = Color3.new(1, 1, 1)
-Title.TextSize = 14
-Title.TextXAlignment = Enum.TextXAlignment.Left
-
--- Slider, Dropdown, Button metinleri...
-Slider.Name = "Slider"
-Title_2.Name = "Title"
-Title_2.Parent = Slider
-Title_2.Font = Enum.Font.Arial
-Title_2.Text = toFancyText("Slider")
-
-Dropdown.Name = "Dropdown"
-Dropdown.Font = Enum.Font.Arial
-Dropdown.Text = toFancyText("      Dropdown")
-
-TabButton.Name = "TabButton"
-TabButton.Font = Enum.Font.Arial
-TabButton.Text = toFancyText("Test tab")
-
-Button.Name = "Button"
-Button.Font = Enum.Font.Arial
-Button.Text = toFancyText("      Folder")
-
--- ANA KÜTÜPHANE FONKSİYONLARI
-local library = {}
-
-function library:CreateWindow(name, options)
-	local window_options = options or {}
-	local size = window_options.size or ui_options.min_size
-	
-	local new_window = Window:Clone()
-	new_window.Parent = Windows
-	new_window.Size = UDim2.new(0, size.X, 0, size.Y)
-	new_window.Title.Text = toFancyText(name) -- Başlığı otomatik çevir
-	
-	-- Diğer UI mantığı...
-	-- (Kodun geri kalanında Text atanan yerlere toFancyText eklenmiştir)
-	
-	local tabs = {}
-	function tabs:CreateTab(name)
-		local new_tab_button = TabButton:Clone()
-		new_tab_button.Parent = TabButtons
-		new_tab_button.Text = toFancyText(name) -- Tab ismini çevir
-		
-		local tab_content = {}
-		function tab_content:CreateButton(name, callback)
-			local new_button = Button_2:Clone()
-			new_button.Parent = Tab
-			new_button.Text = toFancyText(name) -- Buton ismini çevir
-			new_button.MouseButton1Click:Connect(callback)
-		end
-		
-		return tab_content
-	end
-	
-	return tabs
-end
-
-return library
+local UI
